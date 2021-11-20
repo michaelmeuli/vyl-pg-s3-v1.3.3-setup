@@ -1,0 +1,23 @@
+sudo -u postgres createdb vyl-pg-s3-v1.3.3
+sudo -i -u postgres
+psql vyl-pg-s3-v1.3.3
+\password
+**********
+\q
+exit
+
+npx @vendure/create vyl-pg-s3-v1.3.3
+✔ Which database are you using? › Postgres
+✔ What's the database host address? … localhost
+✔ What port is the database listening on? … 5432
+✔ What's the name of the database? … vyl-pg-s3-v1.3.3
+✔ What's the database user name? … postgres
+✔ What's the database password? … ***************
+✔ Which programming language will you be using? › TypeScript
+✔ Populate with some sample product data? … no / yes
+✔ What identifier do you want to use for the superadmin user? … michael
+✔ What password do you want to use for the superadmin user? … **************
+
+
+yarn add aws-sdk
+
