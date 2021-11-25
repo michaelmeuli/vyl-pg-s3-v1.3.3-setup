@@ -21,3 +21,7 @@ npx @vendure/create vyl-pg-s3-v1.3.3
 
 yarn add aws-sdk
 
+Elephantsql:
+The backups are compressed with lzop, to restore run:
+lzop -cd "$FILENAME" | psql "$DATABASE_NAME"
+Or click "Restore" on any of the backups below.
