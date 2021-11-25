@@ -25,3 +25,8 @@ Elephantsql:
 The backups are compressed with lzop, to restore run:
 lzop -cd "$FILENAME" | psql "$DATABASE_NAME"
 Or click "Restore" on any of the backups below.
+
+
+sudo -u postgres pg_dump postgres > vylpgs3v133
+tar --use-compress-program=lzop -cf archive.tar.lzo vylpgs3v133
+pg_dump postgres://user:pass@host/db | psql postgres://user:pass@host2/newdb
