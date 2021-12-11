@@ -1,3 +1,7 @@
+# sudo -u postgres createdb postgres
+# sudo -u postgres dropdb postgres
+# sudo service postgresql stop/start/restart
+
 sudo -u postgres createdb vyl-pg-s3-v1.3.3
 sudo -i -u postgres
 psql vyl-pg-s3-v1.3.3
@@ -21,12 +25,14 @@ npx @vendure/create vyl-pg-s3-v1.3.3
 
 yarn add aws-sdk
 
-Elephantsql:
-The backups are compressed with lzop, to restore run:
-lzop -cd "$FILENAME" | psql "$DATABASE_NAME"
-Or click "Restore" on any of the backups below.
+# Elephantsql:
+# The backups are compressed with lzop, to restore run:
+# lzop -cd "$FILENAME" | psql "$DATABASE_NAME"
+# Or click "Restore" on any of the backups below.
+
+# lzop:
+# -c     write on standard output
+# -d     decompress
 
 
-sudo -u postgres pg_dump postgres > vylpgs3v133
-tar --use-compress-program=lzop -cf archive.tar.lzo vylpgs3v133
-pg_dump postgres://user:pass@host/db | psql postgres://user:pass@host2/newdb
+sudo -u postgres pg_dump -O postgres://user:pass@host/db | psql postgres://user:pass@host2/newdb
